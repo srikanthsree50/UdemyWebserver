@@ -1,5 +1,5 @@
 
-
+const port = process.env.PORT || 3000;
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
@@ -22,9 +22,9 @@ if(err){
 next();
 });
 
-app.use((req,res,next) => {
-    res.render('maintenance.hbs');
-});
+// app.use((req,res,next) => {
+//     res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname+'/public'));
 
@@ -51,6 +51,6 @@ res.render('about.hbs',{
 });
 });
 
-app.listen(3000,() => {
-    console.log('server running on port 3000');
+app.listen(port,() => {
+    console.log(`server running on port ${port}`);
 });
